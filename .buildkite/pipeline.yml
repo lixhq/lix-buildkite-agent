@@ -1,0 +1,3 @@
+steps:
+  - name: Build, Test, Push
+    command: ./.buildkite/build.sh && ./.buildkite/test.sh  && ./.buildkite/push.sh

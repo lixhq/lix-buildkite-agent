@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ "$#" -ge 1 ] && ([ "$1" == "build" ] || [ "$1" == "run" ]); then
+  cmd=$1
+  shift
+
+  container_id=$(basename $(cat /proc/self/cgroup | grep name=))
+  network_mode=$(docker inspect --format='{{.HostConfig.NetworkMode}}' $container_id)
+
+  /usr/bin/docker $cmd --network=$network_mode $@
+else
+  /usr/bin/docker $@
+fi

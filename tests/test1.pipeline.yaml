@@ -1,0 +1,3 @@
+steps:
+  - label: ':hammer: First test'
+    command: 'echo "Hello world...?"'
