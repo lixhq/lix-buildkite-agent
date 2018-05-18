@@ -7,7 +7,7 @@ if [ "$#" -ge 1 ] && ([ "$1" == "build" ] || [ "$1" == "run" ]); then
   container_id=$(basename $(cat /proc/self/cgroup | grep name=))
   network_mode=$(docker inspect --format='{{.HostConfig.NetworkMode}}' $container_id)
 
-  /usr/bin/docker $cmd --network=$network_mode $@
+  /usr/bin/docker $cmd --network=$network_mode "$@"
 else
-  /usr/bin/docker $@
+  /usr/bin/docker "$@"
 fi
