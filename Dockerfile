@@ -1,4 +1,4 @@
-FROM buildkite/agent:3.1.2
+FROM buildkite/agent:3.2.0
 
 RUN apk update && \
     apk add --no-cache fish && \
